@@ -1,0 +1,45 @@
+# .github/dependabot.yml
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for package.json and package-lock.json files in the root directory
+    directory: "/"
+    # Check for updates once a week
+    schedule:
+      interval: "weekly"
+    # Specify default assignees for pull requests
+    assignees:
+      - "your-username"
+    # Specify labels for npm pull requests
+    labels:
+      - "npm"
+      - "dependencies"
+    # Allow up to 10 open pull requests for npm dependencies
+    open-pull-requests-limit: 10
+    # Create pull requests for version updates, security updates, and security patches
+    pull-request-branch-name:
+      # Separate sections of the branch name with a hyphen
+      separator: "-"
+    # Allow updates for all direct dependencies and certain indirect dependencies
+    allow:
+      # Allow updates for direct dependencies
+      - dependency-type: "direct"
+      # Also allow security updates for indirect dependencies
+      - dependency-type: "indirect"
+        update-type: "security"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    # Look for workflow files in the .github/workflows directory
+    directory: "/"
+    # Check for updates once a week
+    schedule:
+      interval: "weekly"
+    # Specify default assignees for pull requests
+    assignees:
+      - "your-username"
+    # Specify labels for GitHub Actions pull requests
+    labels:
+      - "github-actions"
+      - "dependencies"
